@@ -29,10 +29,11 @@ public class RestSecurityFilter implements javax.servlet.Filter {
                          FilterChain chain) throws IOException, ServletException {
 
         HttpServletResponse res = (HttpServletResponse) response;
+        HttpServletRequest req = (HttpServletRequest) request;
 
         // check for key based authentication
         boolean authorized = false;
-        String key = ((HttpServletRequest)request).getHeader("x-authorization-key");
+        String key = req.getHeader("x-authorization-key");
         if(key != null){
             authorized = SecurityUtils.isValidKey(key);
         }
@@ -41,7 +42,7 @@ public class RestSecurityFilter implements javax.servlet.Filter {
             chain.doFilter(request, response);
         }else{
             // tell them NO!
-            res.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
+            res.setStatus(HttpServletResponse.SC_FORBIDDEN);
             res.getWriter().println("<html><body><p>No.. No..</p></body></html>");
         }
 

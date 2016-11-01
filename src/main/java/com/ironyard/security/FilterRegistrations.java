@@ -13,6 +13,9 @@ public class FilterRegistrations {
 
     @Bean
     public FilterRegistrationBean restApiFilter() {
+        /**
+         * Apply RestSecurityFilter filter to any request that matches /rest/*
+         */
         FilterRegistrationBean registration = new FilterRegistrationBean(new RestSecurityFilter());
         registration.addUrlPatterns("/rest/*");
         return registration;

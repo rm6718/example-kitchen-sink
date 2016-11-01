@@ -78,4 +78,9 @@ public class Movie {
     public void setId(long id) {
         this.id = id;
     }
+
+    @Override
+    public String toString(){
+        return String.format("( %s : %s : %s)", getId(), getTitle(), getRating());
+    }
 }

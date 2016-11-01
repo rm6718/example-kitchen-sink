@@ -30,11 +30,15 @@ public class SecurityUtils {
         SecretKeySpec secretKeySpec = new SecretKeySpec(SECRET.getBytes(), "Blowfish");
         Cipher cipher = Cipher.getInstance("Blowfish");
         cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec);
+
+        // build my secret message
         DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
         Calendar cal = Calendar.getInstance();
         String date = dateFormat.format(cal.getTime());
-        byte[] keyData = String.format("%s:%s",date,SECRET).getBytes();
-        byte[] hasil = cipher.doFinal(keyData);
+        String mySecretMessage = String.format("%s:%s", date, SECRET);
+
+        // do the encrypt message
+        byte[] hasil = cipher.doFinal(mySecretMessage.getBytes());
         return new BASE64Encoder().encode(hasil);
     }
 
@@ -42,8 +46,7 @@ public class SecurityUtils {
         String decrypted = null;
 
         try {
-            byte[] keyData = SECRET.getBytes();
-            SecretKeySpec secretKeySpec = new SecretKeySpec(keyData, "Blowfish");
+            SecretKeySpec secretKeySpec = new SecretKeySpec(SECRET.getBytes(), "Blowfish");
             Cipher cipher = Cipher.getInstance("Blowfish");
             cipher.init(Cipher.DECRYPT_MODE, secretKeySpec);
             byte[] hasil = cipher.doFinal(new BASE64Decoder().decodeBuffer(string));
