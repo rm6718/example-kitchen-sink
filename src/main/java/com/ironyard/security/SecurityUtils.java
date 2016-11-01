@@ -42,14 +42,14 @@ public class SecurityUtils {
         return new BASE64Encoder().encode(hasil);
     }
 
-    public static String decrypt(String string) {
+    public static String decrypt(String decryptMe) {
         String decrypted = null;
 
         try {
             SecretKeySpec secretKeySpec = new SecretKeySpec(SECRET.getBytes(), "Blowfish");
             Cipher cipher = Cipher.getInstance("Blowfish");
             cipher.init(Cipher.DECRYPT_MODE, secretKeySpec);
-            byte[] hasil = cipher.doFinal(new BASE64Decoder().decodeBuffer(string));
+            byte[] hasil = cipher.doFinal(new BASE64Decoder().decodeBuffer(decryptMe));
             decrypted = new String(hasil);
         }catch (Throwable t){
             //ignore
@@ -78,7 +78,7 @@ public class SecurityUtils {
                         // must be within a year
                         authorized = dayOfToken.after(oneYearAgo.getTime());
                         // second part of token should match our key
-                        authorized = authorized && SecurityUtils.keyMatches(st.nextToken());
+                        authorized = authorized && SECRET.equals(st.nextToken());
                     } catch (Throwable t) {
                         t.printStackTrace();
                     }

@@ -16,9 +16,10 @@ public class MvcSecurityFilter implements javax.servlet.Filter {
     public void doFilter(ServletRequest request, ServletResponse response,
                          FilterChain chain) throws IOException, ServletException {
         HttpServletRequest req = ((HttpServletRequest) request);
+        HttpServletResponse resp = ((HttpServletResponse) response);
         // check sessio
         IronUser usr = (IronUser) req.getSession().getAttribute("user");
-        boolean authorized = usr != null;
+        boolean authorized = (usr != null);
 
         // check destination
         if(!authorized){
@@ -28,8 +29,7 @@ public class MvcSecurityFilter implements javax.servlet.Filter {
         if(authorized) {
             chain.doFilter(request, response);
         }else{
-            ((HttpServletResponse)response).sendRedirect("/mvc/login.jsp");
-
+            resp.sendRedirect("/mvc/login.jsp");
         }
     }
 

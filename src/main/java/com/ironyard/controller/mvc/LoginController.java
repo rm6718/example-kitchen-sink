@@ -1,7 +1,9 @@
-package com.ironyard.controller.jsp;
+package com.ironyard.controller.mvc;
 
 import com.ironyard.data.IronUser;
 import com.ironyard.repo.IronUserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,21 +18,25 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Controller
 public class LoginController {
+    private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private IronUserRepository userRepository;
 
     @RequestMapping(value = "/mvc/login", method = RequestMethod.POST)
-    public String list(@RequestParam(value = "password", required = false) String password,
+    public String login(@RequestParam(value = "password", required = false) String password,
                        @RequestParam(value = "username", required = false) String username,
                        HttpServletRequest request) {
+        log.info("Login attempt by:"+username);
         String destination = "login";
         IronUser found = userRepository.findByUsernameAndPassword(username, password);
         if(found != null){
             request.getSession().setAttribute("user",found);
-        }else{
             destination = "home";
+            log.info("found user:"+found.getId());
+
         }
+        log.info("Login attempt result:"+destination);
         return destination;
     }
 
