@@ -41,5 +41,9 @@ public class LoginController {
     }
 
 
+    @RequestMapping(value = "/mvc/login", method = RequestMethod.GET)
+    public String abc(){
+        return "login";
+    }
 
 }
