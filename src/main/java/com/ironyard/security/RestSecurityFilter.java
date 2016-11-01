@@ -16,8 +16,6 @@
 
 package com.ironyard.security;
 
-import com.ironyard.util.SecurityUtils;
-
 import java.io.IOException;
 
 import javax.servlet.*;

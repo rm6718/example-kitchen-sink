@@ -1,7 +1,6 @@
 package com.ironyard.security;
 
 import com.ironyard.data.IronUser;
-import com.ironyard.util.SecurityUtils;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
