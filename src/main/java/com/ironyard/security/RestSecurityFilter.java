@@ -22,6 +22,8 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+//used for controllers in the rest folder
 public class RestSecurityFilter implements javax.servlet.Filter {
 
     @Override

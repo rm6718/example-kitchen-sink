@@ -32,7 +32,15 @@ public class Application {
                 .apiInfo(apiInfoUser())
                 .select()
                 .paths(regex("/rest/user.*"))
-                .build();
+                .build()
+                .globalOperationParameters(
+                        newArrayList(new ParameterBuilder()
+                        .name("x-authorization-key")
+                        .description("API Authorization Key")
+                        .modelRef(new ModelRef("string"))
+                        .parameterType("header")
+                        .required(true)
+                        .build()));
     }
 
     @Bean
@@ -42,15 +50,7 @@ public class Application {
                 .apiInfo(apiInfoMovies())
                 .select()
                 .paths(regex("/rest/movie.*"))
-                .build()
-                .globalOperationParameters(
-                 newArrayList(new ParameterBuilder()
-                        .name("x-authorization-key")
-                        .description("API Authorization Key")
-                        .modelRef(new ModelRef("string"))
-                        .parameterType("header")
-                        .required(true)
-                        .build()));
+                .build();
     }
 
     @Bean
@@ -62,6 +62,15 @@ public class Application {
                 .paths(regex("/rest/permission.*"))
                 .build();
     }
+
+
+
+
+
+
+
+
+
     private ApiInfo apiInfoPermissions() {
         return new ApiInfoBuilder()
                 .title("This is our API")

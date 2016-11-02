@@ -1,0 +1,16 @@
+/Users/reevamerchant/Documents/projects/example-kitchen-sink/src/main/java/com/ironyard/controller/mvc/MvcMovieController.java
+/Users/reevamerchant/Documents/projects/example-kitchen-sink/src/main/java/com/ironyard/data/IronUser.java
+/Users/reevamerchant/Documents/projects/example-kitchen-sink/src/main/java/com/ironyard/data/Permission.java
+/Users/reevamerchant/Documents/projects/example-kitchen-sink/src/main/java/com/ironyard/security/SecurityUtils.java
+/Users/reevamerchant/Documents/projects/example-kitchen-sink/src/main/java/com/ironyard/security/MvcSecurityFilter.java
+/Users/reevamerchant/Documents/projects/example-kitchen-sink/src/main/java/com/ironyard/Application.java
+/Users/reevamerchant/Documents/projects/example-kitchen-sink/src/main/java/com/ironyard/repo/MovieRepository.java
+/Users/reevamerchant/Documents/projects/example-kitchen-sink/src/main/java/com/ironyard/controller/rest/PermissionController.java
+/Users/reevamerchant/Documents/projects/example-kitchen-sink/src/main/java/com/ironyard/repo/PermissionRepository.java
+/Users/reevamerchant/Documents/projects/example-kitchen-sink/src/main/java/com/ironyard/repo/IronUserRepository.java
+/Users/reevamerchant/Documents/projects/example-kitchen-sink/src/main/java/com/ironyard/data/Movie.java
+/Users/reevamerchant/Documents/projects/example-kitchen-sink/src/main/java/com/ironyard/controller/rest/MovieController.java
+/Users/reevamerchant/Documents/projects/example-kitchen-sink/src/main/java/com/ironyard/security/FilterRegistrations.java
+/Users/reevamerchant/Documents/projects/example-kitchen-sink/src/main/java/com/ironyard/security/RestSecurityFilter.java
+/Users/reevamerchant/Documents/projects/example-kitchen-sink/src/main/java/com/ironyard/controller/mvc/LoginController.java
+/Users/reevamerchant/Documents/projects/example-kitchen-sink/src/main/java/com/ironyard/controller/rest/IronUserController.java

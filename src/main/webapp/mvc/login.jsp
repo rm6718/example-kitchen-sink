@@ -17,6 +17,8 @@
     </div>
     <input type="submit" name="Login">
 </form>
+
+<a href="/mvc/wideopen">Wideopen</a>
 </body>
 </html>
 
